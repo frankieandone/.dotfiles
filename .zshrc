@@ -4,7 +4,7 @@ export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-packages/bin
 
 
-export ZSH="~/oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
@@ -21,9 +21,12 @@ plugins=(
   colored-man-pages
 )
 
+# User configuration
+
+# IMPORTANT: source $ZSH/oh-my-zsh.sh after loading plugins
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=248"
 
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -60,6 +63,8 @@ source $(brew --prefix)/opt/zsh-git-prompt/zshrc.sh
 
 # brew install keychain
 # mkdir -p ~/.ssh
+# -K, -A is deprecated, use --apple-use-keychain, --apple-load-keychain respectively
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 ssh-add -l
 
 # brew install neovim
@@ -69,20 +74,20 @@ export NPM_HOME="$(which npm)"
 
 alias ls='ls -aGlLp'
 alias vim="lvim"
+alias nvim="lvim"
 alias zshconfig='lvim ~/.zshrc'
-alias vimconfig='lvim ~/.vimrc'
+alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
-alias vimconfig="lvim $XDG_CONFIG_HOME/lvim"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 alias pip=pip3
 
-typeset -U path
+#git diff with line numbers
+alias gd="~/.local/bin/git-diffn.sh"
 
 alias gl='git log --graph --pretty=oneline --abrev-commit'
-
-cd ~/9zxctex/mindhuntr
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+typeset -U path
