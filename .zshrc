@@ -73,7 +73,7 @@ export NPM_HOME="$(which npm)"
 # ---- END OF INSTALL SCRIPT -----
 
 alias rl=exec zsh
-alias relink=ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc
+alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
 alias ls='ls -aGlLp'
 alias vim="lvim"
 alias nvim="lvim"
