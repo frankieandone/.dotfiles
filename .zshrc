@@ -40,8 +40,8 @@ export EDITOR="lvim"
 # sudo xcodebuild -license accept
 
 # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+echo `$(which brew) shellenv` > ~/.zprofile
+eval ~/.zprofile > /dev/null 2>&1
 # brew install zsh
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # chsh -s $(which zsh)
