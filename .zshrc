@@ -72,12 +72,14 @@ export NPM_HOME="$(which npm)"
 
 # ---- END OF INSTALL SCRIPT -----
 
+(git config --global commit.verbose true)
+
 alias rl=exec zsh
 alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
 alias ls='ls -aGlLp'
 alias vim="lvim"
 alias nvim="lvim"
-alias zshconfig='lvim ~$HOME/.dotfiles/.zshrc'
+alias zshconfig='lvim $HOME/.dotfiles/.zshrc'
 alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
