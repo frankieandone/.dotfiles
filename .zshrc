@@ -43,8 +43,15 @@ export EDITOR="lvim"
 # sudo xcodebuild -license accept
 
 # ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-echo `$(which brew) shellenv` > ~/.zprofile
-eval ~/.zprofile > /dev/null 2>&1
+# brew installation path on Apple M1 machines are different
+if [[ `uname -m` == 'arm64' ]]; then
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  echo `$(which brew) shellenv` > ~/.zprofile
+  eval ~/.zprofile > /dev/null 2>&1
+fi
+
 # brew install zsh
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # chsh -s $(which zsh)
