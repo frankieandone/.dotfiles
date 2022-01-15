@@ -1,3 +1,6 @@
+#speed up copy+paste into terminals
+DISABLE_MAGIC_FUNCTIONS="true"
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.8/bin
 export PATH=$PATH:~/.local/bin
@@ -76,10 +79,10 @@ export NPM_HOME="$(which npm)"
 
 alias rl=exec zsh
 alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
-alias ls='ls -aGlLp'
 alias vim="lvim"
 alias nvim="lvim"
-alias zshconfig='lvim $HOME/.dotfiles/.zshrc'
+alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
+alias ls='ls -aGlLp'
 alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
