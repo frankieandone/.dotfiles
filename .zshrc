@@ -22,6 +22,13 @@ plugins=(
   git-auto-fetch
   ssh-agent
   colored-man-pages
+  sudo
+  web-search
+  copydir
+  copyfile
+  history
+  jsontools
+  macos
 )
 
 # User configuration
