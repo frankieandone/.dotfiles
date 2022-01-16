@@ -1,16 +1,18 @@
 #speed up copy+paste into terminals
 DISABLE_MAGIC_FUNCTIONS="true"
 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.8/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-packages/bin
 
+export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
+ZSH_THEME="current"
 export ZSH="$HOME/.oh-my-zsh"
-
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
 
 HYPHEN_INSENSITIVE=true
 ENABLE_CORRECTION=true
@@ -89,6 +91,8 @@ export NPM_HOME="$(which npm)"
 
 # ---- END OF INSTALL SCRIPT -----
 
+source $(dirname $(gem which colorls))/tab_complete.sh
+
 (git config --global commit.verbose true)
 
 alias rl=exec zsh
@@ -96,7 +100,8 @@ alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
 alias vim="lvim"
 alias nvim="lvim"
 alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
-alias ls='ls -aGlLp'
+#alias ls='ls -aGlLp'
+alias ls='colorls -lA --sd'
 alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
