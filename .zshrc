@@ -9,6 +9,7 @@ if [[ `uname -m` == 'arm64' ]]; then
 else
   # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
   export PATH="/usr/local/opt/ruby/bin:$PATH"
+  export PATH="/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
   export LDFLAGS="-L/usr/local/opt/ruby/lib"
   export CPPFLAGS="-I/usr/local/opt/ruby/include"
   export PATH="/usr/local/sbin:$PATH"
@@ -65,7 +66,7 @@ if [[ `uname -m` == 'arm64' ]]; then
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-  echo `$(which brew) shellenv` > ~/.zprofile
+  echo `$(which brew) shellenv` >> ~/.zprofile
   eval ~/.zprofile > /dev/null 2>&1
 fi
 
