@@ -1,15 +1,22 @@
 #speed up copy+paste into terminals
 DISABLE_MAGIC_FUNCTIONS="true"
 
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH"
+if [[ `uname -m` == 'arm64' ]]; then
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  export PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:$PATH"
+  export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
+else
+  # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+  export PATH="/usr/local/opt/ruby/bin:$PATH"
+  export LDFLAGS="-L/usr/local/opt/ruby/lib"
+  export CPPFLAGS="-I/usr/local/opt/ruby/include"
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.8/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-packages/bin
-
-export LDFLAGS="-L/opt/homebrew/opt/ruby/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/ruby/include"
 
 ZSH_THEME="current"
 export ZSH="$HOME/.oh-my-zsh"
@@ -95,12 +102,12 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 (git config --global commit.verbose true)
 
-alias rl=exec zsh
+alias rl="exec zsh"
 alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
 alias vim="lvim"
 alias nvim="lvim"
 alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
-#alias ls='ls -aGlLp'
+# alias ls='ls -aGlLp'
 alias ls='colorls -lA --sd'
 alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
@@ -110,7 +117,7 @@ alias pip=pip3
 #git diff with line numbers
 alias gd="~/.local/bin/git-diffn.sh"
 
-alias gl='git log --graph --pretty=oneline --abrev-commit'
+alias gl="git log --pretty=format:'%C(green)%h%Creset %C(white)on%Creset %C(bold brightcyan) %ad %Creset %C(blue) (%ar) %Creset %C(white)by%Creset %C(red) %ae %Creset %n%w(80,0,1)%+B %Creset' --date=format:'%d.%m.%Y @%H:%M'"
 
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
