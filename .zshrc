@@ -115,7 +115,7 @@ alias nvim="lvim"
 alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
 #in iterm2, requires a Nerd Font to be set for Non-ASCII text
 alias ls='colorls --color=always -lA --sd 2> >(colorize_stderr) || k --no-vcs 2> >(colorize_stderr) || \ls -aGlLp'
-alias vimconfig='code ~/.local/share/lunarvim'
+alias vimconfig='cd $HOME/.local/share/lunarvim && code .'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 alias pip=pip3
