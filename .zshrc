@@ -13,6 +13,7 @@ else
   export LDFLAGS="-L/usr/local/opt/ruby/lib"
   export CPPFLAGS="-I/usr/local/opt/ruby/include"
   export PATH="/usr/local/sbin:$PATH"
+  export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -95,7 +96,13 @@ ssh-add -l
 # brew install neovim
 export NPM_HOME="$(which npm)"
 
+source $HOME/.dotfiles/k.sh
+
 # ---- END OF INSTALL SCRIPT -----
+
+#colourises errors
+#usage: command 2> >(colorize_stderr)
+colorize_stderr() { (tput setaf 1; cat ; tput sgr0;) >&2; }
 
 source $(dirname $(gem which colorls))/tab_complete.sh
 
@@ -106,8 +113,8 @@ alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
 alias vim="lvim"
 alias nvim="lvim"
 alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
-# alias ls='ls -aGlLp'
-alias ls='colorls -lA --sd'
+#in iterm2, requires a Nerd Font to be set for Non-ASCII text
+alias ls='colorls --color=always -lA --sd 2> >(colorize_stderr) || k --no-vcs 2> >(colorize_stderr) || \ls -aGlLp'
 alias vimconfig='code ~/.local/share/lunarvim'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
