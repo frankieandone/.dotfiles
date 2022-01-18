@@ -11,6 +11,7 @@ else
   export PATH="/usr/local/opt/ruby/bin:$PATH"
   export LDFLAGS="-L/usr/local/opt/ruby/lib"
   export CPPFLAGS="-I/usr/local/opt/ruby/include"
+  export PATH="/usr/local/sbin:$PATH"
 fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -77,9 +78,6 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # brew install zsh-autosuggestions
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# brew install zsh-navigation-tools
-source $(brew --prefix)/share/zsh-navigation-tools/zsh-navigation-tools.plugin.zsh
 
 # brew install zsh-you-should-use
 source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
