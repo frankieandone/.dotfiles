@@ -87,6 +87,9 @@ source $(brew --prefix)/share/zsh-you-should-use/you-should-use.plugin.zsh
 # brew install zsh-git-prompt
 source $(brew --prefix)/opt/zsh-git-prompt/zshrc.sh
 
+# brew install git-extras
+source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zsh
+
 # brew install keychain
 # mkdir -p ~/.ssh
 # -K, -A is deprecated, use --apple-use-keychain, --apple-load-keychain respectively
