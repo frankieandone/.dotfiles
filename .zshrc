@@ -100,6 +100,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 export NPM_HOME="$(which npm)"
 
 source $HOME/.dotfiles/k.sh
+source $HOME/.dotfiles/docker.sh
 
 # ---- END OF INSTALL SCRIPT -----
 
