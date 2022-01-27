@@ -94,7 +94,7 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 # mkdir -p ~/.ssh
 # -K, -A is deprecated, use --apple-use-keychain, --apple-load-keychain respectively
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
-ssh-add -l
+# ssh-add -l
 
 # brew install neovim
 export NPM_HOME="$(which npm)"
