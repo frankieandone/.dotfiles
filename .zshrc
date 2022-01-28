@@ -93,8 +93,13 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 # brew install keychain
 # mkdir -p ~/.ssh
 # -K, -A is deprecated, use --apple-use-keychain, --apple-load-keychain respectively
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 # ssh-add -l
+# NOTE: not related to cpu architecture but current workflow: I use an M1 machine for personal use
+if [[ `uname -m` == 'arm64' ]]; then
+  ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
+else
+  ssh-add --apple-use-keychain ~/.ssh/tootoot_id_rsa -q
+fi
 
 # brew install neovim
 export NPM_HOME="$(which npm)"
