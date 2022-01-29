@@ -14,4 +14,9 @@ git clone 'git@github.com:frankieandone/k.git' $k_install_path \
   && echo >> 'source "$dotfiles_path"/k.s"' \
   && $dotfiles_path/k.sh --no-vcs || echo_err "failed to install k.sh"
 
+#fnm: fast node manager built on rust
+install_fnm {
+  brew install fnm
+}
+
 exec zsh

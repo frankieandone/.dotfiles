@@ -102,6 +102,7 @@ else
 fi
 
 # brew install neovim
+eval "$(fnm env --use-on-cd)"
 export NPM_HOME="$(which npm)"
 
 source $HOME/.dotfiles/k.sh
