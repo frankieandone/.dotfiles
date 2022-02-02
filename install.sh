@@ -19,4 +19,9 @@ install_fnm() {
   brew install fnm
 }
 
+#jq: lightweight and flexible command-line JSON processor
+intall_jq {
+  brew install jq
+}
+
 exec zsh
