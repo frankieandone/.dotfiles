@@ -107,6 +107,7 @@ export NPM_HOME="$(which npm)"
 
 source $HOME/.dotfiles/k.sh
 source $HOME/.dotfiles/docker.sh
+source $HOME/.dotfiles/utils/datetime_utils.sh
 
 # ---- END OF INSTALL SCRIPT -----
 
