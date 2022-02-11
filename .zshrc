@@ -111,6 +111,12 @@ source $HOME/.dotfiles/utils/datetime_utils.sh
 
 # ---- END OF INSTALL SCRIPT -----
 
+# checks to see if a variable is set
+# returns 0=true, 1=false
+env_exists() {
+  ! [ -z ${!+set} ]
+}
+
 #colourises errors
 #usage: command 2> >(colorize_stderr)
 colorize_stderr() { (tput setaf 1; cat ; tput sgr0;) >&2; }
@@ -130,6 +136,12 @@ alias vimconfig='cd $HOME/.local/share/lunarvim && code .'
 export XDG_CONFIG_HOME="~/.config"
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 alias pip=pip3
+
+if [[ $(env_exists "GRADLE_HOME") -eq 1 ]]; then
+  echo "Setting GRADLE_HOME"
+  export GRADLE_HOME=$(brew info gradle | grep /usr/local/Cellar/gradle | awk '{print $1}')
+  echo $GRADLE_HOME
+fi
 
 #git diff with line numbers
 alias gd="~/.local/bin/git-diffn.sh"
