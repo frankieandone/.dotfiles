@@ -121,8 +121,6 @@ env_exists() {
 #usage: command 2> >(colorize_stderr)
 colorize_stderr() { (tput setaf 1; cat ; tput sgr0;) >&2; }
 
-source $(dirname $(gem which colorls))/tab_complete.sh
-
 (git config --global commit.verbose true)
 
 alias rl="exec zsh"
