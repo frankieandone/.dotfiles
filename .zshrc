@@ -146,6 +146,10 @@ alias gd="~/.local/bin/git-diffn.sh"
 
 alias gl="git log --stat --pretty=format:'%C(green)%h%Creset %C(white)on%Creset %C(bold brightcyan) %ad %Creset %C(blue) (%ar) %Creset %C(white)by%Creset %C(red) %ae %Creset %n%w(80,0,1)%+B %Creset' --date=format:'%d.%m.%Y @%H:%M'"
 
+gbcp() {
+  git branch | grep "*" | awk '{ print $2 }' | tr -d '\n' | pbcopy;
+}
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
