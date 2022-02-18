@@ -97,6 +97,8 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 # NOTE: not related to cpu architecture but current workflow: I use an M1 machine for personal use
 if [[ `uname -m` == 'arm64' ]]; then
   ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
+  # ssh into mephisto (DigitalOcean) vps; use `ssh mindhuntr` to start a session
+  ssh-add --apple-use-keychain ~/.ssh/mindhuntr_rsa -q
 else
   ssh-add --apple-use-keychain ~/.ssh/tootoot_id_rsa -q
 fi
@@ -144,7 +146,7 @@ fi
 #git diff with line numbers
 alias gd="~/.local/bin/git-diffn.sh"
 
-alias gl="git log --stat --pretty=format:'%C(green)%h%Creset %C(white)on%Creset %C(bold brightcyan) %ad %Creset %C(blue) (%ar) %Creset %C(white)by%Creset %C(red) %ae %n%GG%Creset%n%w(80,0,1)%+B%Creset' --date=format:'%d.%m.%Y @%H:%M'"
+alias gl="git log --tags --stat --pretty=format:'%C(green)%h%Creset %C(white)on%Creset %C(bold brightcyan) %ad %Creset %C(blue) (%ar) %Creset %C(white)by%Creset %C(red) %ae %n%GG%Creset%n%w(80,0,1)%+B%Creset' --date=format:'%d.%m.%Y @%H:%M'"
 
 gbcp() {
   git branch | grep "*" | awk '{ print $2 }' | tr -d '\n' | pbcopy;
