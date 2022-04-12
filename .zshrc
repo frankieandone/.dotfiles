@@ -36,7 +36,7 @@ plugins=(
   colored-man-pages
   sudo
   web-search
-  copydir
+  copypath
   copyfile
   history
   jsontools
