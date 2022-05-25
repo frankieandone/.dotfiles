@@ -29,19 +29,37 @@ ENABLE_CORRECTION=true
 COMPLETION_WAITING_DOTS=true
 HIST_STAMPS=dd.mm.yyyy
 
-plugins=(
-  git
-  git-auto-fetch
-  ssh-agent
-  colored-man-pages
-  sudo
-  web-search
-  copypath
-  copyfile
-  history
-  jsontools
-  macos
-)
+# BACKLOG: use plugin manager for zsh for conditional plugin management
+if [[ `uname -m` == 'arm64' ]]; then 
+  plugins=(
+    git
+    git-auto-fetch
+    ssh-agent
+    colored-man-pages
+    sudo
+    web-search
+    copypath
+    copyfile
+    history
+    jsontools
+    macos
+  )
+else
+  plugins=(
+    git
+    git-auto-fetch
+    ssh-agent
+    colored-man-pages
+    sudo
+    web-search
+    copydir
+    copyfile
+    history
+    jsontools
+    macos
+  )
+fi
+
 
 # User configuration
 
@@ -94,14 +112,12 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 # mkdir -p ~/.ssh
 # -K, -A is deprecated, use --apple-use-keychain, --apple-load-keychain respectively
 # ssh-add -l
-# NOTE: not related to cpu architecture but current workflow: I use an M1 machine for personal use
-if [[ `uname -m` == 'arm64' ]]; then
-  ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
+# if [[ `uname -m` == 'arm64' ]]; then
   # ssh into mephisto (DigitalOcean) vps; use `ssh mindhuntr` to start a session
   ssh-add --apple-use-keychain ~/.ssh/mindhuntr_rsa -q
-else
-  ssh-add --apple-use-keychain ~/.ssh/tootoot_id_rsa -q
-fi
+# fi
+
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 
 # brew install neovim
 eval "$(fnm env --use-on-cd)"
@@ -131,6 +147,8 @@ alias vim="lvim"
 alias nvim="lvim"
 alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
 #in iterm2, requires a Nerd Font to be set for Non-ASCII text
+# gem install colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
 alias ls='colorls --color=always -lA --sd 2> >(colorize_stderr) || k --no-vcs 2> >(colorize_stderr) || \ls -aGlLp'
 alias vimconfig='cd $HOME/.local/share/lunarvim && code .'
 export XDG_CONFIG_HOME="~/.config"
