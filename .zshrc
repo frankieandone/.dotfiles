@@ -120,7 +120,6 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 
 # brew install neovim
-eval "$(fnm env --use-on-cd)"
 export NPM_HOME="$(which npm)"
 
 source $HOME/.dotfiles/k.sh
@@ -181,4 +180,3 @@ fi
 
 typeset -U path
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
