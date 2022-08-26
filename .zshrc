@@ -20,6 +20,7 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:~/Library/Python/3.8/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-packages/bin
+export GPG_TTY=$(tty)
 
 ZSH_THEME="current"
 export ZSH="$HOME/.oh-my-zsh"
