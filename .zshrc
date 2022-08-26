@@ -162,7 +162,7 @@ if [[ $(env_exists "GRADLE_HOME") -eq 1 ]]; then
 fi
 
 #git diff with line numbers
-alias gd="~/.local/bin/git-diffn.sh"
+alias gd=$HOME/.dotfiles/git-diffn.sh
 
 alias gl="git log --tags --stat --pretty=format:'%C(green)%h%Creset %C(white)on%Creset %C(bold brightcyan) %ad %Creset %C(blue) (%ar) %Creset %C(white)by%Creset %C(red) %ae %n%GG%Creset%n%w(80,0,1)%+B%Creset' --date=format:'%d.%m.%Y @%H:%M'"
 
