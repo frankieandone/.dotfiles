@@ -181,3 +181,5 @@ fi
 
 typeset -U path
 
+git -C ~/.local/share/lunarvim/lvim pull
+
