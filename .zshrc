@@ -17,7 +17,6 @@ else
 fi
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$PATH:~/Library/Python/3.8/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.npm-packages/bin
 export GPG_TTY=$(tty)
@@ -125,6 +124,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 source $HOME/.dotfiles/k.sh
 source $HOME/.dotfiles/docker.sh
 source $HOME/.dotfiles/utils/datetime_utils.sh
+source $HOME/.dotfiles/utils/theme_utils.sh
 
 # ---- END OF INSTALL SCRIPT -----
 
@@ -172,9 +172,10 @@ gcgue() {
   git config --global user.email | tr -d '\n' | pbcopy;
 }
 
-
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+export PGDATA=$HOME/.config/postgres/data
 
 typeset -U path
