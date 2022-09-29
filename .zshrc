@@ -73,7 +73,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 
 export LANG=en_US.UTF-8
 
-export EDITOR="lvim"
+export EDITOR="nvim"
 
 # ---- START OF INSTALL SCRIPT -----
 
@@ -120,8 +120,7 @@ source $(brew --prefix)/opt/git-extras/share/git-extras/git-extras-completion.zs
 
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519 -q
 
-# brew install neovim
-export NPM_HOME="$(which npm)"
+#export NPM_HOME="$(which npm)"
 
 source $HOME/.dotfiles/k.sh
 source $HOME/.dotfiles/docker.sh
@@ -143,15 +142,14 @@ colorize_stderr() { (tput setaf 1; cat ; tput sgr0;) >&2; }
 
 alias rl="exec zsh"
 alias relink='ln -s -f $HOME/.dotfiles/.zshrc $HOME/.zshrc'
-alias vim="lvim"
-alias nvim="lvim"
-alias zshconfig='cd $HOME/.dotfiles && lvim .zshrc'
+alias vim=nvim
+alias zshconfig='code $HOME/.dotfiles && cd $HOME/.dotfiles'
+alias vimconfig='code $HOME/.config/nvim && zshconfig'
 #in iterm2, requires a Nerd Font to be set for Non-ASCII text
 # gem install colorls
 source $(dirname $(gem which colorls))/tab_complete.sh
 alias ls='colorls --color=always -lA --sd 2> >(colorize_stderr) || k --no-vcs 2> >(colorize_stderr) || \ls -aGlLp'
-alias vimconfig='cd $HOME/.local/share/lunarvim && code .'
-export XDG_CONFIG_HOME="~/.config"
+export XDG_CONFIG_HOME=$HOME/.config
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*}"'
 alias pip=pip3
 
@@ -180,6 +178,3 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 typeset -U path
-
-git -C ~/.local/share/lunarvim/lvim pull
-
