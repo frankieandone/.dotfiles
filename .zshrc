@@ -82,6 +82,9 @@ export EDITOR="nvim"
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # chsh -s $(which zsh)
 
+# connect brew with zsh
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # brew install zsh-syntax-highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
