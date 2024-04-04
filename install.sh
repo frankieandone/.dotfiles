@@ -1,27 +1,25 @@
-#!/bin/zsh -x
-exec &>$HOME/Downloads/install.sh.log
+#!/bin/sh
 
-mkdir -p $HOME/.dotfiles
-dotfiles_path=$HOME/.dotfiles
+echo "Installing..."
 
-#prints to stderr
-echo_err() { printf "%s\n" "$*" >&2; }
+rm -rf $HOME/.oh-my-zsh.backup
+mv $HOME/.oh-my-zsh $HOME/.oh-my-zsh.backup
 
-k_install_path=$HOME/.k
-git clone 'git@github.com:frankieandone/k.git' $k_install_path \
-  && chmod +x $k_install_path/k.sh \
-  && ln -sf $k_install_path/k.sh $dotfiles_path/k.sh \
-  && echo >> 'source "$dotfiles_path"/k.s"' \
-  && $dotfiles_path/k.sh --no-vcs || echo_err "failed to install k.sh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
-#fnm: fast node manager built on rust
-install_fnm() {
-  brew install fnm
-}
+if [ ! -d $HOME/.dotfiles ]; then
+    git clone --depth=1 git@github.com:frankieandone/.dotfiles.git $HOME/.dotfiles
+fi
 
-#jq: lightweight and flexible command-line JSON processor
-intall_jq {
-  brew install jq
-}
+if [ ! -f $HOME/.dotfiles/themes/daivasmara.zsh-theme ]; then
+    # daivasmara.zsh-theme
+    git clone --depth=1 git@github.com:frankieandone/daivasmara.zsh-theme.git $HOME/.dotfiles/themes
+fi
 
-exec zsh
+cp $HOME/.dotfiles/themes/daivasmara.zsh-theme $HOME/.oh-my-zsh/themes/daivasmara.zsh-theme
+
+rm $HOME/.zshrc
+cp $HOME/.dotfiles/.zshenv.template.sh $HOME/.zshenv
+cp $HOME/.dotfiles/.zshrc.template.sh $HOME/.zshrc
+
+chsh -s $(which zsh)

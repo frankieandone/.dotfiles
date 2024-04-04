@@ -1,1 +1,0 @@
-/Users/fmerzadyan/.local/share/lunarvim/site/pack/packer/start/neovim-ayu/lua/ayu/colors.lua

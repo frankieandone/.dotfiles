@@ -1,0 +1,3 @@
+[submodule "test/zsh-bench"]
+	path = test/zsh-bench
+	url = git@github.com:frankieandone/zsh-bench.git
