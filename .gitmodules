@@ -1,3 +1,6 @@
-[submodule "test/zsh-bench"]
-	path = test/zsh-bench
+[submodule "lib/themes"]
+	path = lib/themes
+	url = git@github.com:frankieandone/daivasmara.zsh-theme.git
+[submodule "lib/zsh-bench"]
+	path = lib/zsh-bench
 	url = git@github.com:frankieandone/zsh-bench.git
