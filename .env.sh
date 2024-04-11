@@ -1,10 +1,15 @@
 #!/usr/bin/env zsh
 
 path=(
+    /opt/homebrew/bin
     /usr/bin
     /usr/local/bin
     $path[@]
 )
+
+fpath=($DOTFILES/autoload $fpath)
+
+autoload -Uz $DOTFILES/autoload/*(:t)
 
 local SDKMAN_HOME="$HOME/.sdkman/bin/sdkman-init.sh"
 if [ -f $SDKMAN_HOME ]; then
@@ -35,6 +40,11 @@ if [ -d "/opt/homebrew/opt/postgresql@16" ]; then
     export LDFLAGS="-L/opt/homebrew/opt/postgresql@16/lib"
     export CPPFLAGS="-I/opt/homebrew/opt/postgresql@16/include"
     path+=(/opt/homebrew/opt/postgresql@16/bin)
+fi
+
+if [ -d $HOME/.c ]; then
+    export VCPKG_ROOT=$HOME/.c/vcpkg
+    path+=($VCPKG_ROOT)
 fi
 
 typeset -U PATH path
