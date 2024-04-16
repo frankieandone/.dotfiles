@@ -4,7 +4,7 @@ path=(
     /opt/homebrew/bin
     /usr/bin
     /usr/local/bin
-    $path[@]
+    "${path[@]}"
 )
 
 fpath=($DOTFILES/autoload $fpath)
