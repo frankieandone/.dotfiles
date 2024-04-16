@@ -1,4 +1,4 @@
-#!/usr/bin/zsh env
+#!/usr/bin/env zsh
 
 DISABLE_MAGIC_FUNCTIONS=true
 HYPHEN_INSENSITIVE=true
