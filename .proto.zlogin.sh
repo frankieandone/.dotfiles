@@ -10,4 +10,4 @@ zstyle ':omz:plugins:git' aliases yes
 zstyle ':omz:update' mode disabled
 zstyle ':omz:update' verbose silent
 
-autoload -Uz compinit && compinit -C;
+autoload -Uz compinit && compinit -C
