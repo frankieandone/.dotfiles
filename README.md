@@ -1,4 +1,4 @@
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/frankieandone/.dotfiles/main/install.sh)" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/frankieandone/.dotfiles/main/init.sh)" --unattended
 
 chsh -s /bin/zsh
 
