@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+dependencies() {
+    local filepath=$DOTFILES/dependencies.ssv
+    local packages=($(brew leaves -r))
+    local result=()
+    for package in $packages; do
+        package_version=$(brew info --json $package | jq '.[0].versions.stable' | xargs echo)
+        result+=("$package@$package_version")
+    done
+    echo $result >$filepath
+}

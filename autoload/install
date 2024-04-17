@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+
+install() {
+    local filepath=$DOTFILES/dependencies.ssv
+    if [[ ! -f $filepath ]]; then
+        echo "Not found but required: $filepath"
+        return 1
+    fi
+
+    local dependencies=()
+
+    while IFS= read -r line; do
+        read -A fields <<<"$line"
+        dependencies+=("$fields[@]")
+    done <"$filepath"
+
+    for package in "${dependencies[@]}"; do
+        package_name=$(echo "$package" | cut -d '@' -f 1)
+        package_major_minor=$(echo "$package" | cut -d '@' -f 2 | cut -d '.' -f 1,2)
+
+        local ok="Successfully installed"
+        local err="Failed to install"
+
+        if brew install "$package"; then
+            echo "$ok $package"
+        else
+            local package_fallback="$package_name@$package_major_minor"
+            echo "$err $package"
+            echo "Attempting $package_fallback install..."
+
+            if brew install "$package_fallback"; then
+                echo "$ok $package_fallback"
+            else
+                echo "Fallback: $err $package_fallback"
+            fi
+        fi
+    done
+}
