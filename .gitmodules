@@ -7,3 +7,6 @@ url = git@github.com:frankieandone/zsh-bench.git
 [submodule "zsh"]
 path = zsh
 url = git@github.com:frankieandone/zsh.git
+[submodule "app/iterm"]
+	path = app/iterm
+	url = git@github.com:frankieandone/iterm.git
