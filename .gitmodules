@@ -4,3 +4,6 @@ url = git@github.com:frankieandone/daivasmara.zsh-theme.git
 [submodule "lib/zsh-bench"]
 path = lib/zsh-bench
 url = git@github.com:frankieandone/zsh-bench.git
+[submodule "zsh"]
+path = zsh
+url = git@github.com:frankieandone/zsh.git
