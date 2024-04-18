@@ -2,6 +2,7 @@
 
 path=(
     /opt/homebrew/bin
+    /opt/homebrew/sbin
     /usr/bin
     /usr/local/bin
     "${path[@]}"
