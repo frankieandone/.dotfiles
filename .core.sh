@@ -2,5 +2,5 @@
 
 # ZSH_THEME=robbyrussell
 ZSH_THEME=daivasmara
-plugins=(git ssh-agent history)
+plugins=(gpg-agent ssh-agent history git)
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
