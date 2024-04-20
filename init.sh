@@ -25,5 +25,3 @@ fi
 
 cp -fv $ZSH_DOTFILES/.proto.zshenv.zsh $HOME/.zshenv
 cp -fv $ZSH_DOTFILES/.proto.zshrc.zsh $HOME/.zshrc
-
-cp -fv "$ZSH_DOTFILES/lib/themes/daivasmara.zsh-theme" "$HOME/.oh-my-zsh/custom/themes/daivasmara.zsh-theme"
