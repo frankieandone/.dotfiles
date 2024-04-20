@@ -23,5 +23,5 @@ else
     git clone --recurse-submodules --depth=1 git@github.com:frankieandone/.dotfiles.git $DOTFILES
 fi
 
-cp -fv $ZSH_DOTFILES/.proto.zshenv.zsh $HOME/.zshenv
-cp -fv $ZSH_DOTFILES/.proto.zshrc.zsh $HOME/.zshrc
+ln -sfv $ZSH_DOTFILES/.proto.zshenv.zsh $HOME/.zshenv
+ln -sfv $ZSH_DOTFILES/.proto.zshrc.zsh $HOME/.zshrc

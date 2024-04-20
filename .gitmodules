@@ -1,12 +1,9 @@
-[submodule "lib/zsh-bench"]
-path = lib/zsh-bench
-url = git@github.com:frankieandone/zsh-bench.git
 [submodule "zsh"]
-path = zsh
-url = git@github.com:frankieandone/zsh.git
+	path = zsh
+	url = git@github.com:frankieandone/zsh.git
 [submodule "app/iterm"]
-path = app/iterm
-url = git@github.com:frankieandone/iterm.git
+	path = app/iterm
+	url = git@github.com:frankieandone/iterm.git
 [submodule "app/nvim"]
-path = app/nvim
-url = git@github.com:frankieandone/nvim.git
+	path = app/nvim
+	url = git@github.com:frankieandone/nvim.git
