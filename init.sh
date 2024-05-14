@@ -25,3 +25,4 @@ fi
 
 ln -sfv $ZSH_DOTFILES/.proto.zshenv.zsh $HOME/.zshenv
 ln -sfv $ZSH_DOTFILES/.proto.zshrc.zsh $HOME/.zshrc
+ln -sv $DOTFILES/app/nvim $HOME/.config/nvim
