@@ -1,3 +1,7 @@
 .DS_Store
 .git
 .vscode
+
+app
+!app/iterm
+!app/nvim
