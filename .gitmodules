@@ -7,3 +7,6 @@
 [submodule "app/nvim"]
 	path = app/nvim
 	url = git@github.com:frankieandone/nvim.git
+[submodule "app/ublock"]
+	path = app/ublock
+	url = https://github.com/yokoffing/filterlists.git
