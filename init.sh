@@ -1,11 +1,11 @@
 #!/bin/sh
 
-DOTFILES="$HOME/.dotfiles"
-ZSH_DOTFILES=$DOTFILES/zsh
+DOTFILES='${HOME}/.dotfiles'
+ZSH_DOTFILES='${DOTFILES}/zsh'
 
-if [ -d $DOTFILES ]; then
+if [ -d "$DOTFILES" ]; then
     echo '$DOTFILES is already installed.'
-    read -p 'Do you want to overwrite it? (yes/no): ' overwrite_response
+    read -p 'Do you want to overwrite it? (yes/no):'
     case "$overwrite_response" in
     [Yy][Ee][Ss])
         git reset --hard origin/main
@@ -20,9 +20,9 @@ if [ -d $DOTFILES ]; then
         ;;
     esac
 else
-    git clone --recurse-submodules --depth=1 git@github.com:frankieandone/.dotfiles.git $DOTFILES
+    git clone --recurse-submodules --depth=1 git@github.com:frankieandone/.dotfiles.git "$DOTFILES"
 fi
 
 ln -sfv $ZSH_DOTFILES/.proto.zshenv.zsh $HOME/.zshenv
 ln -sfv $ZSH_DOTFILES/.proto.zshrc.zsh $HOME/.zshrc
-ln -sv $DOTFILES/app/nvim $HOME/.config/nvim
+ln -sfv $DOTFILES/app/nvim $HOME/.config/nvim
