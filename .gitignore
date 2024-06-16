@@ -5,3 +5,5 @@
 app
 !app/iterm
 !app/nvim
+!app/tldr
+
